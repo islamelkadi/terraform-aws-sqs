@@ -1,0 +1,31 @@
+# SQS Example Variables
+
+variable "region" {
+  description = "AWS region for resources"
+  type        = string
+  default     = "us-east-1"
+}
+
+variable "namespace" {
+  description = "Namespace (organization/team name)"
+  type        = string
+  default     = "example"
+}
+
+variable "environment" {
+  description = "Environment name (dev, staging, prod)"
+  type        = string
+  default     = "dev"
+}
+
+variable "project_name" {
+  description = "Project name for tagging"
+  type        = string
+  default     = "example-project"
+}
+
+variable "kms_key_arn" {
+  description = "ARN of KMS key for SQS encryption (replace with your actual KMS key)"
+  type        = string
+}
+
