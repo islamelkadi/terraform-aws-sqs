@@ -74,20 +74,6 @@ Security controls are automatically applied based on the environment through the
 
 For full details on security profiles and how controls vary by environment, see the [Security Profiles](https://github.com/islamelkadi/terraform-aws-metadata?tab=readme-ov-file#security-profiles) documentation.
 
-### Security Best Practices
-
-**Production Queues:**
-- Use KMS customer-managed keys for encryption
-- Configure dead letter queues for error handling
-- Set appropriate message retention periods
-- Use IAM policies to restrict queue access
-- Monitor queue metrics in CloudWatch
-
-**Development Queues:**
-- KMS encryption still recommended
-- Shorter retention periods acceptable
-
-For complete security standards and implementation details, see [AWS Security Standards](../../../.kiro/steering/aws/aws-security-standards.md).
 ## Usage
 
 ### Basic Example
