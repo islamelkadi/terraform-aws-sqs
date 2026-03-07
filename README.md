@@ -5,13 +5,13 @@ Creates AWS SQS queues with encryption, dead letter queue support, and FIFO capa
 ## Table of Contents
 
 - [Prerequisites](#prerequisites)
-- [Security Controls](#security-controls)
+- [Security](#security)
+- [Features](#features)
 - [Usage](#usage)
 - [Requirements](#requirements)
-- [Inputs](#inputs)
-- [Outputs](#outputs)
+- [MCP Servers](#mcp-servers)
+- [License](#license)
 
----
 
 ## Prerequisites
 
@@ -28,7 +28,11 @@ make bootstrap
 
 This will install/upgrade: tfenv, Terraform (via tfenv), tflint, terraform-docs, checkov, and pre-commit.
 
-## Security Controls
+
+
+## Security
+
+### Security Controls
 
 This module implements security controls to comply with:
 - AWS Foundational Security Best Practices (FSBP)
@@ -61,6 +65,33 @@ This module implements security controls to comply with:
 
 For complete security standards and implementation details, see [AWS Security Standards](../../../.kiro/steering/aws/aws-security-standards.md).
 
+### Environment-Based Security Controls
+
+Security controls are automatically applied based on the environment through the [terraform-aws-metadata](https://github.com/islamelkadi/terraform-aws-metadata?tab=readme-ov-file#security-profiles){:target="_blank"} module's security profiles:
+
+| Control | Dev | Staging | Prod |
+|---------|-----|---------|------|
+| KMS encryption | Optional | Required | Required |
+| Encryption in transit (TLS 1.2+) | Required | Required | Required |
+| Dead letter queue | Optional | Recommended | Required |
+| Access control (IAM) | Enforced | Enforced | Enforced |
+
+For full details on security profiles and how controls vary by environment, see the <a href="https://github.com/islamelkadi/terraform-aws-metadata?tab=readme-ov-file#security-profiles" target="_blank">Security Profiles</a> documentation.
+
+### Security Best Practices
+
+**Production Queues:**
+- Use KMS customer-managed keys for encryption
+- Configure dead letter queues for error handling
+- Set appropriate message retention periods
+- Use IAM policies to restrict queue access
+- Monitor queue metrics in CloudWatch
+
+**Development Queues:**
+- KMS encryption still recommended
+- Shorter retention periods acceptable
+
+For complete security standards and implementation details, see [AWS Security Standards](../../../.kiro/steering/aws/aws-security-standards.md).
 ## Usage
 
 ### Basic Example
@@ -114,18 +145,6 @@ module "main_queue" {
 
 MIT Licensed. See LICENSE for full details.
 
-## Environment-Based Security Controls
-
-Security controls are automatically applied based on the environment through the [terraform-aws-metadata](https://github.com/islamelkadi/terraform-aws-metadata?tab=readme-ov-file#security-profiles){:target="_blank"} module's security profiles:
-
-| Control | Dev | Staging | Prod |
-|---------|-----|---------|------|
-| KMS encryption | Optional | Required | Required |
-| Encryption in transit (TLS 1.2+) | Required | Required | Required |
-| Dead letter queue | Optional | Recommended | Required |
-| Access control (IAM) | Enforced | Enforced | Enforced |
-
-For full details on security profiles and how controls vary by environment, see the <a href="https://github.com/islamelkadi/terraform-aws-metadata?tab=readme-ov-file#security-profiles" target="_blank">Security Profiles</a> documentation.
 
 ## MCP Servers
 
