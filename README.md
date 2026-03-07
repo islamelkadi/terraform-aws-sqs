@@ -94,7 +94,6 @@ For complete security standards and implementation details, see [AWS Security St
 ```hcl
 module "queue" {
   source = "github.com/islamelkadi/terraform-aws-sqs"
-  
   namespace   = "example"
   environment = "prod"
   name        = "corporate-actions-dlq"
@@ -112,7 +111,6 @@ module "queue" {
 ```hcl
 module "dlq" {
   source = "github.com/islamelkadi/terraform-aws-sqs"
-  
   namespace   = "example"
   environment = "prod"
   name        = "corporate-actions-dlq"
@@ -123,7 +121,6 @@ module "dlq" {
 
 module "main_queue" {
   source = "github.com/islamelkadi/terraform-aws-sqs"
-  
   namespace   = "example"
   environment = "prod"
   name        = "corporate-actions"
