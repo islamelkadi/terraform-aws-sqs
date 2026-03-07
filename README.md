@@ -10,7 +10,6 @@ Creates AWS SQS queues with encryption, dead letter queue support, and FIFO capa
 - [Usage](#usage)
 - [Requirements](#requirements)
 - [MCP Servers](#mcp-servers)
-- [License](#license)
 
 
 ## Prerequisites
@@ -141,11 +140,6 @@ module "main_queue" {
 }
 ```
 
-## License
-
-MIT Licensed. See LICENSE for full details.
-
-
 ## MCP Servers
 
 This module includes two [Model Context Protocol (MCP)](https://modelcontextprotocol.io/) servers configured in `.kiro/settings/mcp.json` for use with Kiro:
@@ -222,7 +216,3 @@ Both servers run via `uvx` and require no additional installation beyond the [bo
 | <a name="output_queue_url"></a> [queue\_url](#output\_queue\_url) | URL of the SQS queue |
 | <a name="output_tags"></a> [tags](#output\_tags) | Tags applied to the SQS queue |
 
-## License
-
-MIT Licensed. See [LICENSE](LICENSE) for full details.
-<!-- END_TF_DOCS -->
