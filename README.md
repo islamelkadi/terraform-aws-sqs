@@ -1,5 +1,9 @@
 # Terraform AWS SQS Module
 
+[![Terraform Security](https://github.com/islamelkadi/terraform-aws-sqs/actions/workflows/terraform-security.yaml/badge.svg)](https://github.com/islamelkadi/terraform-aws-sqs/actions/workflows/terraform-security.yaml)
+[![Terraform Lint & Validation](https://github.com/islamelkadi/terraform-aws-sqs/actions/workflows/terraform-lint.yaml/badge.svg)](https://github.com/islamelkadi/terraform-aws-sqs/actions/workflows/terraform-lint.yaml)
+[![Terraform Docs](https://github.com/islamelkadi/terraform-aws-sqs/actions/workflows/terraform-docs.yaml/badge.svg)](https://github.com/islamelkadi/terraform-aws-sqs/actions/workflows/terraform-docs.yaml)
+
 Creates AWS SQS queues with encryption, dead letter queue support, and FIFO capabilities.
 
 ## Table of Contents
