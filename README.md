@@ -195,3 +195,4 @@ Both servers run via `uvx` and require no additional installation beyond the [bo
 | <a name="output_queue_url"></a> [queue\_url](#output\_queue\_url) | URL of the SQS queue |
 | <a name="output_tags"></a> [tags](#output\_tags) | Tags applied to the SQS queue |
 
+<!-- END_TF_DOCS -->
