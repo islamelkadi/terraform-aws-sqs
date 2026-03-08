@@ -23,9 +23,3 @@ variable "project_name" {
   type        = string
   default     = "example-project"
 }
-
-variable "kms_key_arn" {
-  description = "ARN of KMS key for SQS encryption (replace with your actual KMS key)"
-  type        = string
-}
-
