@@ -1,9 +1,13 @@
+# Primary Module Example - This demonstrates the terraform-aws-sqs module
+# Supporting infrastructure (KMS) is defined in separate files
+# to keep this example focused on the module's core functionality.
+#
 # SQS Queue Examples
 # Demonstrates standard and FIFO queue configurations with security control overrides
 
 # ============================================================================
 # Example 1: Standard SQS Queue with Dead Letter Queue
-# Basic configuration with fictitious KMS key
+# Basic configuration with KMS encryption
 # ============================================================================
 
 module "standard_queue" {
@@ -19,8 +23,8 @@ module "standard_queue" {
   visibility_timeout_seconds = 30
   receive_wait_time_seconds  = 10 # Enable long polling
 
-  # Encryption - replace with your actual KMS key ARN
-  kms_key_arn = var.kms_key_arn
+  # Direct reference to kms.tf module output
+  kms_key_arn = module.kms_key.key_arn
 
   # Dead letter queue
   dead_letter_target_arn = module.dlq.queue_arn
@@ -43,8 +47,8 @@ module "dlq" {
 
   message_retention_seconds = 1209600 # 14 days (maximum)
 
-  # Encryption - replace with your actual KMS key ARN
-  kms_key_arn = var.kms_key_arn
+  # Direct reference to kms.tf module output
+  kms_key_arn = module.kms_key.key_arn
 
   tags = {
     Project = var.project_name
@@ -76,8 +80,8 @@ module "fifo_queue" {
   message_retention_seconds  = 345600 # 4 days
   visibility_timeout_seconds = 60
 
-  # Encryption - replace with your actual KMS key ARN
-  kms_key_arn = var.kms_key_arn
+  # Direct reference to kms.tf module output
+  kms_key_arn = module.kms_key.key_arn
 
   tags = {
     Project   = var.project_name
@@ -104,8 +108,8 @@ module "high_throughput_queue" {
   visibility_timeout_seconds = 30
   receive_wait_time_seconds  = 20 # Maximum long polling
 
-  # Encryption - replace with your actual KMS key ARN
-  kms_key_arn = var.kms_key_arn
+  # Direct reference to kms.tf module output
+  kms_key_arn = module.kms_key.key_arn
 
   tags = {
     Project = var.project_name
