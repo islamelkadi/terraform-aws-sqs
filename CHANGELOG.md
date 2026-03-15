@@ -1,3 +1,16 @@
+## [1.1.0](https://github.com/islamelkadi/terraform-aws-sqs/compare/v1.0.2...v1.1.0) (2026-03-15)
+
+
+### Features
+
+* add manual triggering to release workflow ([a6cbecb](https://github.com/islamelkadi/terraform-aws-sqs/commit/a6cbecb36483b6f0e8e0a92b0912004ee4591e99))
+
+
+### Documentation
+
+* add GitHub Actions workflow status badges ([4373b64](https://github.com/islamelkadi/terraform-aws-sqs/commit/4373b64b224301ccd8f78333329639e6a50e5794))
+* add security scan suppressions section to README ([0b70248](https://github.com/islamelkadi/terraform-aws-sqs/commit/0b7024865a42643dbe5807c62f796c164df1c14f))
+
 ## [1.0.2](https://github.com/islamelkadi/terraform-aws-sqs/compare/v1.0.1...v1.0.2) (2026-03-08)
 
 
